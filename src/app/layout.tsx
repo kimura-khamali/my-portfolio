@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+/**import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -31,4 +31,32 @@ export default function RootLayout({
       </body>
     </html>
   );
+}**/
+
+
+
+
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Animated Portfolio",
+  description: "Interactive animated portfolio with Three.js",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="bg-slate-900">{children}</body>
+    </html>
+  );
 }
+
+
+
+
+
