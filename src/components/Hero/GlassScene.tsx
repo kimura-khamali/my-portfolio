@@ -72,6 +72,8 @@ export default function GlassScene({ onFlipComplete }: GlassSceneProps) {
       metalness: 0.05,
       ior: 1.5,
       side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 1,
     });
 
     const glass = new THREE.Mesh(glassGeometry, glassMaterial);
@@ -116,7 +118,10 @@ export default function GlassScene({ onFlipComplete }: GlassSceneProps) {
           scaleProgress += 0.05;
           const scale = 1.2 * (1 - scaleProgress);
           glassRef.current!.scale.set(scale, scale, scale);
-          glassRef.current!.material.opacity = 1 - scaleProgress;
+          
+          // Type cast the material to access opacity
+          const material = glassRef.current!.material as THREE.MeshPhysicalMaterial;
+          material.opacity = 1 - scaleProgress;
 
           if (scaleProgress >= 1) {
             clearInterval(scaleInterval);

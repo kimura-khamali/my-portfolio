@@ -65,18 +65,17 @@ export default function Home() {
 }
 **/
 
-
 // app/page.tsx
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import GlassScene from '@/components/Hero/GlassScene';
 
 export default function Home() {
   const [glassFlipped, setGlassFlipped] = useState(false);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -87,30 +86,30 @@ export default function Home() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: 'easeOut' },
+      transition: { duration: 1, ease: [0.42, 0, 0.58, 1] },
     },
   };
 
-  const personVariants = {
+  const personVariants: Variants = {
     hidden: { opacity: 0, x: -100 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 1.2, ease: 'easeOut' },
+      transition: { duration: 1.2, ease: [0.42, 0, 0.58, 1] },
     },
   };
 
-  const textVariants = {
+  const textVariants: Variants = {
     hidden: { opacity: 0, x: 100 },
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 1.2, ease: 'easeOut', delay: 0.2 },
+      transition: { duration: 1.2, ease: [0.42, 0, 0.58, 1], delay: 0.2 },
     },
   };
 
@@ -156,7 +155,7 @@ export default function Home() {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
                 className="text-9xl drop-shadow-2xl"
               >
